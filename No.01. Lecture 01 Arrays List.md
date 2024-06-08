@@ -282,3 +282,29 @@ public static void main(String[] args) {
 	System.out.println("Trái cây in hoa: " + upperCaseFruits);
 }
 ```
+
+### 5. Nhập danh sách từ bàn phím
+
+```java
+public static void main(String[] args) {
+	// Khởi tạo một đối tượng Scanner để nhập từ người dùng
+	Scanner scanner = new Scanner(System.in);
+
+	// Khai báo một ArrayList để lưu trữ các số nguyên
+	ArrayList<Integer> numbers = new ArrayList<>();
+
+	// Nhập số lượng phần tử của mảng từ người dùng
+	System.out.print("Nhập số lượng phần tử của mảng: ");
+	int n = scanner.nextInt();
+
+	// Nhập các phần tử của mảng từ người dùng và lưu vào ArrayList
+	System.out.println("Nhập các phần tử của mảng:");
+	for (int i = 0; i < n; i++) {
+		int num = scanner.nextInt();
+		numbers.add(num);
+	}
+
+	// In ra mảng đã nhập
+	System.out.println("Mảng đã nhập: " + numbers);
+}
+```
