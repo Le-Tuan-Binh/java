@@ -635,6 +635,16 @@ public static void main(String[] args) {
 
 ### 8. Sắp xếp danh sách
 
+**Cách hoạt động của Comparator trong hàm sắp xếp**
+
+Phương thức `compare` trong interface `Comparator` quyết định thứ tự của hai đối tượng bằng cách trả về một số nguyên. Kết quả trả về của phương thức compare sẽ quyết định xem liệu hai đối tượng có cần hoán đổi vị trí với nhau hay không trong quá trình sắp xếp.
+
+Dưới đây là cách mà phương thức compare hoạt động:
+
+-   Trả về một số âm: Vị trí của o1 và o2 không cần hoán đổi.
+-   Trả về số 0: o1 và o2 đã đúng vị trí và vị trí của chúng có thể không thay đổi.
+-   Trả về một số dương: Vị trí của o1 và o2 cần hoán đổi
+
 #### 8.1 Hàm .sort()
 
 Phương thức `.sort()` được sử dụng để sắp xếp **mảng gồm các kiểu và đối tượng nguyên thủy**. Việc sắp xếp được thực hiện theo thứ tự tăng dần theo mặc định, nhưng nó có thể được tùy chỉnh cho các đối tượng bằng cách triển khai interface Comparable hoặc dùng Comparator.
@@ -646,7 +656,7 @@ Phương thức `.sort()` được sử dụng để sắp xếp **mảng gồm 
 
 Comparator là một đối tượng thực hiện việc so sánh, xác định logic so sánh cho các phần tử trong mảng.
 
-Ví dụ sort cho một Arraylist
+Ví dụ sort cho một `Arraylist`
 
 ```java
 public static void main(String[] args) {
@@ -669,7 +679,7 @@ public static void main(String[] args) {
 }
 ```
 
-Ví dụ sort cho một mảng 1 chiều
+Ví dụ sort cho một `mảng 1 chiều`
 
 ```java
 public static void main(String[] args) {
@@ -686,5 +696,39 @@ public static void main(String[] args) {
 	for (String str : strings) {
 		System.out.print(str + " ");
 	}
+}
+```
+
+#### 8.2 Hàm Collection.sort()
+
+Trong Java, Collections là một lớp tiện ích cung cấp nhiều phương thức hữu ích để làm việc với các cấu trúc dữ liệu Collection. Trong đó, Collections.sort() là một phương thức được sử dụng để sắp xếp các phần tử trong một Collection.
+
+    public static <T extends Comparable<? super T>> void sort(List<T> list)
+
+**Tham số**
+
+-   list: Danh sách cần sắp xếp.
+
+**Mô tả**
+Phương thức sort() của lớp Collections được sử dụng để sắp xếp các phần tử trong một danh sách (List) theo thứ tự tăng dần, dựa trên thứ tự tự nhiên của các phần tử hoặc theo thứ tự được xác định bởi phương thức compareTo() của interface Comparable.
+
+```java
+public static void main(String[] args) {
+	List<Integer> arr = new ArrayList<>();
+	int a[] = {3, 1, 0, 4, 2, 6, 5};
+	for (int x : a) {
+		arr.add(x);
+	}
+
+	// Sử dụng Collections.sort() với Comparator để sắp xếp theo thứ tự giảm dần
+	Collections.sort(arr, new Comparator<Integer>() {
+		@Override
+		public int compare(Integer o1, Integer o2) {
+			return o2 - o1;
+		}
+	});
+
+	// In danh sách sau khi sắp xếp
+	arr.forEach((n) -> System.out.print(n + " "));
 }
 ```
