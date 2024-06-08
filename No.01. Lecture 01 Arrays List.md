@@ -38,3 +38,22 @@ public static void main(String[] args) {
 	System.out.println("Danh sách trái cây: " + fruits);
 }
 ```
+
+**add(int index, DataType dataType)**
+
+Đôi khi, bạn cần thêm phần tử vào một vị trí cụ thể trong danh sách. Bạn có thể sử dụng phương thức add(int index, E element) để thực hiện điều này.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+
+	// Thêm vào trước Banana (index = 1)
+	fruits.add(1, "Blueberry");
+
+	System.out.println("Danh sách trái cây: " + fruits);
+}
+```
