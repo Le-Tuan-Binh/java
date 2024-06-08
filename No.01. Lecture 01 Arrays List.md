@@ -6,7 +6,7 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 
 ## Getting Involved
 
-#### 1. Khai báo
+### 1. Khai báo
 
 Để sử dụng ArrayList, bạn cần import gói `java.util.ArrayList` vào chương trình của mình.
 
@@ -14,11 +14,12 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 List<dataType> arr = new ArrayList<>();
 ArrayList<dataType> arr = new ArrayList<>();
 ArrayList<String> fruits = new ArrayList<>(<initialSize>);
+ArrayList<String> fruits = new ArrayList<>(Arrays.asList(value1, value2));
 ```
 
 **Chú ý:** ArrayList chỉ lưu được các **object**, **không thể** lưu được các **kiểu dữ liệu nguyên thủy** như int, long, float, double... Thay vì đó ta sử dụng lớp wrapper của kiểu dữ liệu đó là Integer, Long, Float, Double...
 
-#### 2. Thêm một phần tử vào ArrayList
+### 2. Thêm một phần tử vào ArrayList
 
 Một trong những thao tác quan trọng và thường xuyên nhất khi làm việc với ArrayList là thêm phần tử vào danh sách. Trong phần này, chúng ta sẽ tìm hiểu chi tiết về cách thêm phần tử vào ArrayList và các khía cạnh liên quan.
 
@@ -130,4 +131,23 @@ Bạn cũng có thể thêm trực tiếp mà không cần qua một mảng
 
 ```java
  Collections.addAll(fruits, "Cherry", "Date", "Elderberry");
+```
+
+### 3. Truy cập đến một phần tử trong ArrayList
+
+Để truy cập vào các phần tử trong array list, ta truy cập thông qua chỉ số tương tự như mảng.
+
+Tuy nhiên có một số sự khác biệt, để truy cập các phần tử trong ArrayList, bạn sử dụng phương thức get(). Phương thức này trả về giá trị của phần tử tại chỉ số (index) được chỉ định.
+
+```java
+import java.util.ArrayList;
+
+ public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+	String fruit = fruits.get(1);
+	System.out.println("Phần tử tại chỉ số 1: " + fruit);
+}
 ```
