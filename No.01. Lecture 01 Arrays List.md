@@ -635,6 +635,56 @@ public static void main(String[] args) {
 
 ### 8. Sắp xếp danh sách
 
-#### 8.1 Hàm Arrays.sort()
+#### 8.1 Hàm .sort()
 
 Phương thức `.sort()` được sử dụng để sắp xếp **mảng gồm các kiểu và đối tượng nguyên thủy**. Việc sắp xếp được thực hiện theo thứ tự tăng dần theo mặc định, nhưng nó có thể được tùy chỉnh cho các đối tượng bằng cách triển khai interface Comparable hoặc dùng Comparator.
+
+    Arrays.sort(array, comparator);
+
+
+    ArraysName.sort(compartor)
+
+Comparator là một đối tượng thực hiện việc so sánh, xác định logic so sánh cho các phần tử trong mảng.
+
+Ví dụ sort cho một Arraylist
+
+```java
+public static void main(String[] args) {
+
+	List<String> strings = new ArrayList<>();
+	strings.add("banana");
+	strings.add("apple");
+	strings.add("orange");
+	strings.add("grape");
+
+	// Sắp xếp mảng các chuỗi theo thứ tự từ điển tăng dần
+	strings.sort(new Comparator<String>() {
+		@Override
+		public int compare(String s1, String s2) {
+			return s1.compareTo(s2);
+		}
+	});
+
+	strings.forEach((str) -> System.out.print(str + " "));
+}
+```
+
+Ví dụ sort cho một mảng 1 chiều
+
+```java
+public static void main(String[] args) {
+	String[] strings = {"banana", "apple", "orange", "grape"};
+
+	// Sắp xếp mảng các chuỗi theo thứ tự từ điển tăng dần
+	Arrays.sort(strings, new Comparator<String>() {
+		@Override
+		public int compare(String s1, String s2) {
+			return s1.compareTo(s2);
+		}
+	});
+
+	for (String str : strings) {
+		System.out.print(str + " ");
+	}
+}
+```
