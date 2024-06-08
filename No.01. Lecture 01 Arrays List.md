@@ -796,9 +796,12 @@ public static void main(String[] args) {
 	HashMap<Person, String> hashMap = new HashMap<>();
 	hashMap.put(person_one, "Value for person_one");
 	boolean containsPersonTwo = hashMap.containsKey(person_two);
-	// Kết quả false
 	System.out.println("HashMap contains person_two: " + containsPersonTwo);
 }
+```
+
+```bash
+HashMap contains person_two: false
 ```
 
 Về mặt lý thuyết, chúng ta mong muốn person_one và person_two là như nhau, tuy nhiên về việc vận hành ứng dụng nếu không có đầy đủ các hàm overide equal() và hashCode() sẽ dẫn đến việc so sánh bị sai vì hai đối tượng có 2 địa chỉ khác nhau.
@@ -837,6 +840,10 @@ public static void main(String[] args) {
 	boolean containsPersonTwo = hashMap.containsKey(person_two);
 	System.out.println("HashMap contains person_two: " + containsPersonTwo);
 }
+```
+
+```bash
+HashMap contains person_two: true
 ```
 
 **Time Complexity:** O(N), trong đó N là kích thước của ArrayList
