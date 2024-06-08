@@ -308,3 +308,29 @@ public static void main(String[] args) {
 	System.out.println("Mảng đã nhập: " + numbers);
 }
 ```
+
+### 6. Một số phương thức của ArrayList
+
+#### 6.1 Hàm contains()
+
+Phương thức `.contains()` được khai báo trong interface `List` và được triển khai trong class `ArrayList`.
+
+Nó được sử dụng để kiểm tra xem phần tử có trong ArrayList được chỉ định hay không. Hàm trả về giá trị boolean là `true` nếu phần tử có mặt và `false` nếu không.
+
+```java
+public static void main(String[] args) {
+
+	ArrayList<String> fruitList = new ArrayList<String>();
+
+	fruitList.add("Mangos");
+	fruitList.add("Bananas");
+	fruitList.add("Watermelons");
+	fruitList.add("Grapes");
+
+	boolean areOrangesPresent = fruitList.contains("Oranges");
+	boolean areBananasPresent = fruitList.contains("Bananas");
+
+	System.out.println("Fruit list contains oranges: "+ areOrangesPresent);
+	System.out.println("Fruit list contains bananas: "+ areBananasPresent);
+}
+```
