@@ -6,7 +6,7 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 
 ## Getting Involved
 
-#### 1. Khai báo và sử dụng ArrayList
+#### 1. Khai báo
 
 Để sử dụng ArrayList, bạn cần import gói `java.util.ArrayList` vào chương trình của mình.
 
