@@ -407,6 +407,40 @@ public static void main(String[] args) {
 }
 ```
 
+#### 6.5 Hàm toArray()
+
+Phương thức `.toArray()` của lớp ArrayList là một phương thức phổ biến trong Java để chuyển đổi một ArrayList thành một mảng và trả về mảng vừa tạo. Mảng trả về chứa tất cả các phần tử trong ArrayList theo đúng thứ tự.
+
+    <T> T[] toArray(T[] array)
+
+Trong ví dụ bên dưới, phương thức `.toArray()` được sử dụng để chuyển đổi một ArrayList có tên FruitList chứa các chuỗi thành một mảng các chuỗi. Sau khi được chuyển đổi, mảng kết quả có tên FruitArray sẽ được in ra.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruitsList = new ArrayList<>();
+	fruitsList.add("Apple");
+	fruitsList.add("Banana");
+	fruitsList.add("Orange");
+
+	String[] fruitsArray = (String[]) fruitsList.toArray();
+	System.out.println("Fruits Array: " + Arrays.toString(fruitsArray));
+}
+```
+
+Trong ví dụ này, phương thức `.toArray()` được sử dụng để chuyển đổi một ArrayList có tên là colorList chứa các chuỗi thành một mảng đối tượng. Sau khi được chuyển đổi, mảng kết quả có tên colorArray sẽ được in ra.
+
+```java
+ public static void main(String[] args) {
+	ArrayList<String> colorsList = new ArrayList<>();
+	colorsList.add("Red");
+	colorsList.add("Green");
+	colorsList.add("Blue");
+
+	Object[] colorsArray = colorsList.toArray();
+	System.out.println("Colors Array: " + Arrays.toString(colorsArray));
+}
+```
+
 ### 7. Một số hàm liên quan đến xóa phần tử ra khỏi danh sách
 
 Khi làm việc với danh sách trong Java, có một số phương thức quan trọng để loại bỏ phần tử khỏi danh sách. Dưới đây là một số phương thức phổ biến mà bạn có thể sử dụng như remove(), removeAll(), removeIf(), clear()...
