@@ -208,6 +208,21 @@ public static void main(String[] args) {
 
 `ListIterator` là một phiên bản nâng cao của `Iterator`, cho phép duyệt qua ArrayList theo cả hai hướng (`từ đầu đến cuối và từ cuối đến đầu`), cũng như cung cấp các phương thức để sửa đổi các phần tử.
 
+Một số phương thức của `ListIterator`
+
+**1. Phương Thức Duyệt Qua**
+
+-   boolean hasNext(): Kiểm tra xem còn phần tử nào tiếp theo không.
+-   E next(): Trả về phần tử tiếp theo và di chuyển con trỏ tới phần tử đó.
+-   boolean hasPrevious(): Kiểm tra xem còn phần tử nào trước đó không.
+-   E previous(): Trả về phần tử trước đó và di chuyển con trỏ lùi lại một bước.
+
+**2. Phương Thức Sửa Đổi**
+
+-   void remove(): Xóa phần tử cuối cùng được trả về bởi next() hoặc previous(). Phương thức này chỉ có thể được gọi một lần cho mỗi lần gọi next() hoặc previous().
+-   void set(E e): Thay thế phần tử cuối cùng được trả về bởi next() hoặc previous() bằng phần tử được chỉ định.
+-   void add(E e): Chèn phần tử được chỉ định vào danh sách ngay trước phần tử sẽ được trả về bởi lần gọi next() tiếp theo và sau phần tử sẽ được trả về bởi lần gọi previous() tiếp theo.
+
 ```java
 public static void main(String[] args) {
 	ArrayList<String> fruits = new ArrayList<>();
