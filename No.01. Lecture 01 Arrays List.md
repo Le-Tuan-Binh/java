@@ -23,7 +23,7 @@ Một trong những thao tác quan trọng và thường xuyên nhất khi làm 
 
 Có rất nhiều cách thêm phần tử vào ArrayList, tuy nhiên ở bài blog này chúng ta sẽ đề cập tới một số phương thức chính.
 
-    add(DataType dataType)
+**add(DataType dataType)**
 
 Hàm add dùng để thêm một phần tử vào cuối danh sách, đây là cách sử dụng hàm add một cách dễ dàng với ví dụ sau
 
