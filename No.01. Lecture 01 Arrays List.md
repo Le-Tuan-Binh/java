@@ -189,6 +189,15 @@ public static void main(String[] args) {
 
 Iterator là một công cụ mạnh mẽ cho phép duyệt qua các phần tử của ArrayList một cách an toàn và có khả năng loại bỏ phần tử trong khi duyệt.
 
+**1. Phương Thức Duyệt Qua**
+
+-   boolean hasNext(): Kiểm tra xem còn phần tử nào tiếp theo không.
+-   E next(): Trả về phần tử tiếp theo và di chuyển con trỏ tới phần tử đó.
+
+**2. Phương Thức Sửa Đổi**
+
+-   void remove(): Xóa phần tử cuối cùng được trả về bởi next() hoặc previous(). Phương thức này chỉ có thể được gọi một lần cho mỗi lần gọi next() hoặc previous().
+
 ```java
 public static void main(String[] args) {
 	ArrayList<String> fruits = new ArrayList<>();
