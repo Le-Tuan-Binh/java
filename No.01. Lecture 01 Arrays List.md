@@ -441,7 +441,55 @@ Trong ví dụ này, phương thức `.toArray()` được sử dụng để chu
 }
 ```
 
-### 7. Một số hàm liên quan đến xóa phần tử ra khỏi danh sách
+#### 6.6 Hàm set()
+
+Phương thức `.set()` thay thế một phần tử tại một vị trí được chỉ định bằng một phần tử hoặc giá trị khác . Sau khi thực hiện, phần tử được thay thế sẽ được trả về.
+
+    set(int index, E element)
+
+Lưu ý: Phần tử mới phải có cùng kiểu dữ liệu với các phần tử còn lại trong đối tượng arrayList. Nếu không, sẽ xảy ra lỗi.
+
+#### 6.7 Hàm size()
+
+The .size() method of the ArrayList class returns the number of elements in the list.
+
+```java
+public static void main(String[] args) {
+    // Create an ArrayList of Strings
+	ArrayList<String> list = new ArrayList<>();
+
+	// Add some elements to the list
+	list.add("Apple");
+	list.add("Banana");
+	list.add("Orange");
+
+	// Get the size of the list
+	int size = list.size();
+
+	// Print the size of the list
+	System.out.println("Size of list: " + size);
+}
+```
+
+```java
+public static void main(String[] args) {
+	List<String> colors = new ArrayList<>();
+	colors.add("Red");
+	colors.add("Green");
+	colors.add("Blue");
+
+	// In danh sách trước khi thay đổi
+	System.out.println("Danh sách ban đầu: " + colors);
+
+	// Thay đổi giá trị của phần tử ở chỉ số 1 thành "Yellow"
+	colors.set(1, "Yellow");
+
+	// In danh sách sau khi thay đổi
+	System.out.println("Danh sách sau khi thay đổi: " + colors);
+}
+```
+
+### 7. Xóa phần tử ra khỏi danh sách
 
 Khi làm việc với danh sách trong Java, có một số phương thức quan trọng để loại bỏ phần tử khỏi danh sách. Dưới đây là một số phương thức phổ biến mà bạn có thể sử dụng như remove(), removeAll(), removeIf(), clear()...
 
