@@ -6,30 +6,15 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 
 ## Getting Involved
 
-#### Khai báo và sử dụng ArrayList
+#### 1. Khai báo và sử dụng ArrayList
 
 Để sử dụng ArrayList, bạn cần import gói `java.util.ArrayList` vào chương trình của mình.
 
-Dưới đây là một số ví dụ cơ bản về cách khởi tạo và sử dụng ArrayList trong Java.
+**Khai báo**
 
 ```java
-import java.util.ArrayList;
-
-public class ArrayList {
-	public static void main(String[] args) {
-
-		// Khởi tạo một ArrayList chứa các phần tử kiểu String
-		ArrayList<String> fruits = new ArrayList<>();
-
-		// Thêm các phần tử vào ArrayList
-		fruits.add("Apple");
-		fruits.add("Banana");
-		fruits.add("Cherry");
-
-		// Hiển thị các phần tử của ArrayList
-		System.out.println("Các loại trái cây: " + fruits);
-	}
-}
+	List<dataType> arr = new ArrayList<>();
+	ArrayList<dataType> arr = new ArrayList<>();
 ```
 
 **Chú ý:** ArrayList chỉ lưu được các **object**, **không thể** lưu được các **kiểu dữ liệu nguyên thủy** như int, long, float, double... Thay vì đó ta sử dụng lớp wrapper của kiểu dữ liệu đó là Integer, Long, Float, Double...
