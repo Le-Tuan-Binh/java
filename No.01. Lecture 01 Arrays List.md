@@ -500,3 +500,29 @@ public static void main(String[] args) {
 	}
 }
 ```
+
+#### 7.3 Hàm removeIf()
+
+Phương thức `.removeIf()` loại bỏ tất cả các phần tử của ArrayList thỏa mãn một yêu cầu nào đó. Bất kỳ lỗi hoặc ngoại lệ thời gian chạy nào được đưa ra trong quá trình lặp hoặc kiểm tra điều kiện đều được chuyển tiếp đến người dùng.
+
+Nếu bất kỳ phần tử nào bị loại bỏ, phương thức này trả về true. Nếu không, nó trả về sai.
+
+    arrayList.removeIf(Predicate<T> filter);
+
+Trong đó
+
+-   arrayList: Tên của danh sách.
+-   Predicate<T>: Giao hiện hàm đại diện cho một điều kiện nào đó với kiểu Template T
+-   filter: Điều kiện cần kiểm tra
+
+```java
+public static void main(String[] args) {
+	ArrayList<Integer> nums = new ArrayList<Integer>();
+	nums.add(10);
+	nums.add(15);
+	nums.add(20);
+	nums.add(30);
+	nums.removeIf(n -> (n % 2 == 0));
+	System.out.println(nums);
+}
+```
