@@ -851,4 +851,4 @@ public class Main {
 }
 ```
 
-**Time Complexity:** O(N), where N is the length of the Array list.
+**Time Complexity:** O(N), trong đó N là kích thước của ArrayList
