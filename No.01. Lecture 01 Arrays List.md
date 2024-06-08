@@ -884,4 +884,4 @@ Danh sách ban đầu sau khi thay đổi: [Apple, Banana, Blueberry, Date, Elde
 
 -   Mọi thay đổi trên danh sách con sẽ phản ánh trên danh sách gốc và ngược lại.
 
--   # Bất Biến: Không thể thay đổi kích thước của danh sách con (không thể thêm hoặc xóa phần tử).
+-   Bất Biến: Không thể thay đổi kích thước của danh sách con (không thể thêm hoặc xóa phần tử).
