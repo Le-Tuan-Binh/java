@@ -451,7 +451,7 @@ Lưu ý: Phần tử mới phải có cùng kiểu dữ liệu với các phần
 
 #### 6.7 Hàm size()
 
-The .size() method of the ArrayList class returns the number of elements in the list.
+Phương thức .size() của lớp ArrayList trả về số phần tử trong danh sách.
 
 ```java
 public static void main(String[] args) {
@@ -608,3 +608,30 @@ public static void main(String[] args) {
 	System.out.println(nums);
 }
 ```
+
+#### 7.4 Hàm clear()
+
+Phương thức clear() trong Java được sử dụng để xóa tất cả các phần tử từ một danh sách (ArrayList), làm cho danh sách trở thành rỗng.
+
+Gọi phương thức clear() trên đối tượng danh sách (ArrayList) mà bạn muốn xóa các phần tử.
+
+```java
+public static void main(String[] args) {
+	// Khởi tạo một ArrayList
+	List<String> colors = new ArrayList<>();
+	colors.add("Red");
+	colors.add("Green");
+	colors.add("Blue");
+
+	// In danh sách ban đầu
+	System.out.println("Danh sách ban đầu: " + colors);
+
+	// Xóa tất cả các phần tử từ danh sách
+	colors.clear();
+
+	// In danh sách sau khi xóa
+	System.out.println("Danh sách sau khi xóa: " + colors);
+}
+```
+
+### 8. Sắp xếp danh sách
