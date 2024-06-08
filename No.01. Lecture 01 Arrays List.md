@@ -315,6 +315,8 @@ public static void main(String[] args) {
 
 Phương thức `.contains()` được khai báo trong interface `List` và được triển khai trong class `ArrayList`.
 
+    arrayList.contains(obj);
+
 Nó được sử dụng để kiểm tra xem phần tử có trong ArrayList được chỉ định hay không. Hàm trả về giá trị boolean là `true` nếu phần tử có mặt và `false` nếu không.
 
 ```java
