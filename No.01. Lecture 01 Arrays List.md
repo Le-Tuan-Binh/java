@@ -406,3 +406,60 @@ public static void main(String[] args) {
 	System.out.println("Is fruits empty: " + fruits.isEmpty());
 }
 ```
+
+### 7. Một số hàm liên quan đến xóa phần tử ra khỏi danh sách
+
+Khi làm việc với danh sách trong Java, có một số phương thức quan trọng để loại bỏ phần tử khỏi danh sách. Dưới đây là một số phương thức phổ biến mà bạn có thể sử dụng như remove(), removeAll(), removeIf(), clear()...
+
+#### 7.1 Hàm remove()
+
+Phương thức `.remove()` được sử dụng để xóa các phần tử đã chỉ định khỏi các đối tượng của lớp `ArrayList`.
+
+Một phần tử có thể được loại bỏ khỏi đối tượng của ArrayList bằng cách truyền vào phương thức `.remove()`. Nó có thể được tham chiếu theo giá trị hoặc vị trí của phần tử đó.
+
+    arrayList.remove(elementValue/elementIndex);
+
+Trong ví dụ bên dưới, một thể hiện `ArrayList` sinh viên trống được tạo và có thể chứa các phần tử kiểu Chuỗi.
+
+Tiếp theo, một vài phần tử được thêm bằng phương thức `.add()`. Cuối cùng, hai sinh viên sẽ bị xóa khỏi ArrayList bằng `.remove()`
+
+```java
+ public static void main(String[] args) {
+
+	ArrayList<String> studentList = new ArrayList<String>();
+
+	studentList.add("Lê Tuấn Bình");
+	studentList.add("Nguyễn Thị Minh Châu");
+	studentList.add("Trần Lê Quốc Khánh");
+	studentList.add("Bùi Thanh Tú");
+
+	studentList.remove(0);
+	studentList.remove("Nguyễn Thị Minh Châu");
+
+	System.out.println(studentList);
+}
+```
+
+Tuy nhiên đối với trường hợp mảng là một các số nguyên cần đảm bảo độ chính xác để chương trình phân biệt được giữa chỉ số và giá trị. Ta cần đảm bảo việc ép kiểu để chương trình có thể hoạt động chính xác.
+
+```java
+public static void main(String[] args) {
+	List<Integer> arr = new ArrayList<>();
+	int a[] = {1, 2, 2, 2, 3, 3, 5};
+
+	// Thêm các phần tử của mảng a vào danh sách arr
+	for(int x : a) {
+		arr.add(x);
+	}
+	// Loại bỏ phần tử có chỉ số là 1 (tính từ 0)
+	arr.remove(1);
+
+	// Loại bỏ phần tử có giá trị là 3
+	arr.remove((Object)(3));
+
+	// In các phần tử còn lại trong danh sách
+	for(int x : arr) {
+		System.out.print(x + " ");
+	}
+}
+```
