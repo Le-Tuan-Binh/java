@@ -13,6 +13,7 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 ```java
 List<dataType> arr = new ArrayList<>();
 ArrayList<dataType> arr = new ArrayList<>();
+ArrayList<String> fruits = new ArrayList<>(<initialSize>);
 ```
 
 **Chú ý:** ArrayList chỉ lưu được các **object**, **không thể** lưu được các **kiểu dữ liệu nguyên thủy** như int, long, float, double... Thay vì đó ta sử dụng lớp wrapper của kiểu dữ liệu đó là Integer, Long, Float, Double...
@@ -56,4 +57,77 @@ public static void main(String[] args) {
 
 	System.out.println("Danh sách trái cây: " + fruits);
 }
+```
+
+**addAll(Collection<? extends E> c)**
+
+Phương thức `addAll(Collection<? extends E> c)` cho phép bạn thêm tất cả các phần tử từ một Collection khác vào ArrayList.
+
+Điều này rất hữu ích khi bạn muốn hợp nhất hai danh sách hoặc sao chép các phần tử từ một danh sách vào một danh sách khác.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+
+	List<String> moreFruits = new ArrayList<>();
+	moreFruits.add("Cherry");
+	moreFruits.add("Dragon");
+
+	fruits.addAll(moreFruits);
+
+	System.out.println("Danh sách trái cây: " + fruits);
+}
+```
+
+**addAll(int index, Collection<? extends E> c)**
+
+Phương thức `addAll(int index, Collection<? extends E> c)` cho phép bạn thêm tất cả các phần tử từ một Collection khác vào ArrayList tại một vị trí cụ thể.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+
+	List<String> moreFruits = new ArrayList<>();
+	moreFruits.add("Cherry");
+	moreFruits.add("Date");
+
+	// Thêm tất cả các phần tử từ moreFruits vào vị trí thứ hai (index = 1) trong fruits
+	fruits.addAll(1, moreFruits);
+
+	System.out.println("Danh sách trái cây: " + fruits);
+}
+```
+
+**Collections.addAll(Collection<? super T> c, T... elements)**
+
+Trong đó:
+
+-   c: Collection đích, tức là ArrayList hoặc một Collection khác mà bạn muốn thêm các phần tử vào.
+
+-   elements: Các phần tử cần thêm vào Collection. Đây là một danh sách các phần tử được truyền vào dưới dạng các tham số biến đổi (varargs).
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+
+	// Tạo một mảng các phần tử cần thêm
+	String[] moreFruits = {"Cherry", "Date", "Elderberry"};
+
+	// Thêm tất cả các phần tử từ mảng moreFruits vào fruits
+	Collections.addAll(fruits, moreFruits);
+
+	System.out.println("Danh sách trái cây: " + fruits);
+}
+```
+
+Bạn cũng có thể thêm trực tiếp mà không cần qua một mảng
+
+```java
+ Collections.addAll(fruits, "Cherry", "Date", "Elderberry");
 ```
