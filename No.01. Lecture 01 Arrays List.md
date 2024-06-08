@@ -754,15 +754,23 @@ public static void main(String[] args) {
 }
 ```
 
-Có thể so sánh 2 Object thuộc các lốp tùy chỉnh với kiểu đối tượng trong java như sau. Tuy nhiên chúng ta cần phải ghi đè các phương thức quan trọng như equal() và hashCode() của lớp đó.
+**Chú ý**
 
-Trong Java, khi bạn ghi đè phương thức equals(), bạn nên cũng ghi đè phương thức hashCode() để đảm bảo tính nhất quán giữa hai phương thức này.
+Có thể so sánh hai đối tượng thuộc các lớp tùy chỉnh với kiểu đối tượng trong Java. Tuy nhiên, chúng ta cần phải ghi đè các phương thức quan trọng như equals() và hashCode() của lớp đó.
 
-Phương thức hashCode() trả về một giá trị số nguyên được sử dụng để xác định vị trí lưu trữ của đối tượng trong các cấu trúc dữ liệu dựa trên băm như HashMap, HashSet, v.v. Trong trường hợp của ArrayList, nó cũng được sử dụng khi bạn thêm một đối tượng vào danh sách.
+**Phương thức equal()**
+
+Phương thức `equals()` được sử dụng để xác định xem hai đối tượng **có bằng nhau hay không dựa trên nội dung của chúng**, không phải tham chiếu bộ nhớ. Theo **mặc định**, phương thức này trong Java **so sánh các tham chiếu đối tượng**, có nghĩa là hai đối tượng riêng biệt có cùng nội dung sẽ không được coi là bằng nhau.
+
+Bất cứ khi nào chúng ta ghi đè phương thức equal(), chúng ta cũng phải ghi đè phương thức hashCode() để duy trì hợp đồng giữa hai phương thức này.
+
+**Phương thức hashCode()**
+
+Phương thức `hashCode()` trả về một giá trị số nguyên được sử dụng để xác định vị trí lưu trữ của đối tượng trong các cấu trúc dữ liệu dựa trên băm như HashMap, HashSet, v.v. Trong trường hợp của ArrayList, nó cũng được sử dụng khi bạn thêm một đối tượng vào danh sách.
 
 Nếu bạn không ghi đè phương thức hashCode(), mặc định Java sẽ sử dụng phương thức hashCode() của lớp Object, và các đối tượng có thể có các giá trị hashCode() khác nhau cho cùng một nội dung, dẫn đến việc không nhất quán trong việc so sánh các đối tượng.
 
-Trong phương thức hashCode() được ghi đè của lớp Person, chúng ta sử dụng Objects.hash() để tính toán giá trị hashCode() dựa trên các thuộc tính name và age. Điều này đảm bảo rằng hai đối tượng có cùng name và age sẽ có cùng một giá trị hashCode(), từ đó giúp tối ưu hóa hiệu suất khi chúng ta lưu trữ và tìm kiếm trong các cấu trúc dữ liệu dựa trên băm.
+Hợp đồng tổng quát quy định rằng nếu hai đối tượng bằng nhau, mã băm của chúng cũng phải bằng nhau. Việc không ghi đè phương thức hashCode() có thể dẫn đến hành vi không nhất quán khi các đối tượng được sử dụng trong các bộ sưu tập dựa trên băm.
 
 Ví dụ cho việc không ghi đè HashCode()
 
@@ -770,84 +778,64 @@ Ví dụ cho việc không ghi đè HashCode()
 static class Person {
 	private String name;
 	private int age;
-
 	public Person(String name, int age) {
 		this.name = name;
 		this.age = age;
 	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Person person = (Person) o;
+		return age == person.age && name.equals(person.name);
+	}
 }
-
 public static void main(String[] args) {
-	// Tạo hai đối tượng Person có nội dung giống nhau nhưng không ghi đè hashCode()
-	Person person1 = new Person("John", 30);
-	Person person2 = new Person("John", 30);
-
-	// Tạo một HashMap và thêm person1 vào đó
+	Person person_one = new Person("John", 30);
+	Person person_two = new Person("John", 30);
 	HashMap<Person, String> hashMap = new HashMap<>();
-	hashMap.put(person1, "Value for person1");
-
-	// Kiểm tra xem HashMap có chứa person2 không
-	boolean containsPerson2 = hashMap.containsKey(person2);
-
+	hashMap.put(person_one, "Value for person_one");
+	boolean containsPersonTwo = hashMap.containsKey(person_two);
 	// Kết quả false
-	System.out.println("HashMap contains person2: " + containsPerson2);
+	System.out.println("HashMap contains person_two: " + containsPersonTwo);
 }
 ```
+
+Về mặt lý thuyết, chúng ta mong muốn person_one và person_two là như nhau, tuy nhiên về việc vận hành ứng dụng nếu không có đầy đủ các hàm overide equal() và hashCode() sẽ dẫn đến việc so sánh bị sai vì hai đối tượng có 2 địa chỉ khác nhau.
 
 Dưới đây là đoạn code hoàn chỉnh đảm bảo sự nhất quán và các thuộc tính hashCode and equal trong lớp Person
 
 ```java
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
-class Person {
-    private String name;
-    private int age;
-
-    public Person(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
-    // Ghi đè phương thức equals()
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Person person = (Person) o;
-        return age == person.age && Objects.equals(name, person.name);
-    }
-
-    // Ghi đè phương thức hashCode()
-    @Override
-    public int hashCode() {
-        return Objects.hash(name, age);
-    }
-
-    @Override
-    public String toString() {
-        return name + " (" + age + ")";
-    }
+static class Person {
+	private String name;
+	private int age;
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Person person = (Person) o;
+		return age == person.age && Objects.equals(name, person.name);
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, age);
+	}
+	@Override
+	public String toString() {
+		return name + " (" + age + ")";
+	}
 }
-
-public class Main {
-    public static void main(String[] args) {
-        List<Person> list1 = new ArrayList<>();
-        List<Person> list2 = new ArrayList<>();
-
-        list1.add(new Person("Alice", 30));
-        list1.add(new Person("Bob", 25));
-
-        list2.add(new Person("Alice", 30));
-        list2.add(new Person("Bob", 25));
-
-        boolean areEqual = list1.equals(list2);
-        System.out.println("list1 equals list2: " + areEqual); // true
-
-        System.out.println("list1: " + list1);
-        System.out.println("list2: " + list2);
-    }
+public static void main(String[] args) {
+	Person person_one = new Person("John", 30);
+	Person person_two = new Person("John", 30);
+	HashMap<Person, String> hashMap = new HashMap<>();
+	hashMap.put(person_one, "Value for person_one");
+	boolean containsPersonTwo = hashMap.containsKey(person_two);
+	System.out.println("HashMap contains person_two: " + containsPersonTwo);
 }
 ```
 
