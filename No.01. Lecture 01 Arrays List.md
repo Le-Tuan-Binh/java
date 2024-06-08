@@ -236,25 +236,25 @@ public static void main(String[] args) {
 `Stream API` được giới thiệu trong Java 8, cung cấp một cách `hiện đại` và `linh hoạt` để xử lý các tập hợp dữ liệu. Bạn có thể sử dụng Stream để duyệt qua các phần tử, áp dụng các phép biến đổi, và thực hiện các phép tính trên ArrayList.
 
 ```java
- public static void main(String[] args) {
+public static void main(String[] args) {
 	ArrayList<String> fruits = new ArrayList<>();
 	fruits.add("Apple");
 	fruits.add("Banana");
 	fruits.add("Cherry");
 
-	// Sử dụng Stream API để duyệt qua các phần tử và in ra màn hình
-	fruits.stream().forEach(fruit -> System.out.println("Trái cây: " + fruit));
+	// Sử dụng for each để duyệt qua các phần tử và in ra màn hình
+	fruits.forEach(fruit -> System.out.println("Trái cây: " + fruit));
 
 	// Sử dụng Stream API để lọc các phần tử bắt đầu bằng chữ "B" và in ra màn hình
 	List<String> filteredFruits = fruits.stream()
-								.filter(fruit -> fruit.startsWith("B"))
-								.collect(Collectors.toList());
+			.filter(fruit -> fruit.startsWith("B"))
+			.toList();
 	System.out.println("Trái cây bắt đầu bằng chữ B: " + filteredFruits);
 
 	// Sử dụng Stream API để chuyển đổi các phần tử sang chữ in hoa
 	List<String> upperCaseFruits = fruits.stream()
-								.map(String::toUpperCase)
-								.collect(Collectors.toList());
+			.map(String::toUpperCase)
+			.toList();
 	System.out.println("Trái cây in hoa: " + upperCaseFruits);
 }
 ```
