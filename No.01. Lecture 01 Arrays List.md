@@ -336,3 +336,30 @@ public static void main(String[] args) {
 	System.out.println("Fruit list contains bananas: "+ areBananasPresent);
 }
 ```
+
+#### 6.2 forEach()
+
+Phương thức `.forEach()` thực hiện một hành động được chỉ định trên từng phần tử trong ArrayList. Phương thức này duyệt qua từng phần tử trong ArrayList cho đến khi tất cả các phần tử đã được xử lý hoặc một ngoại lệ được đưa ra từ hành động.
+
+    arrayList.forEach(Consumer<E> action);
+
+Trong đó:
+
+-   arrayList: Tên biến của danh sách ArrayList
+-   Consumer: Một giao diện hàm (functional interface) đại diện cho một hoạt động cần được thực hiện. Nó có thể được sử dụng như mục tiêu gán cho một biểu thức lambda hoặc tham chiếu đến một phương thức nào.
+-   action: Hoạt động nhận một phần tử của kiểu E trong ArrayList làm đối số duy nhất của nó và không trả về bất kỳ giá trị nào.
+
+Nó chỉ lặp qua các phần tử mà không sửa đổi ArrayList và không trả về bất kỳ giá trị nào.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> students = new ArrayList<>();
+
+	students.add("Lê Tuấn Bình");
+	students.add("Bình Lê Tuấn");
+	students.add("TBin");
+	students.add("TBinT");
+
+	students.forEach((s) -> System.out.println(s));
+}
+```
