@@ -732,3 +732,123 @@ public static void main(String[] args) {
 	arr.forEach((n) -> System.out.print(n + " "));
 }
 ```
+
+### 9. So sánh giữa các ArrayList
+
+Java cung cấp một phương thức để so sánh hai Danh sách mảng. `ArrayList.equals()` là phương thức được sử dụng để so sánh hai Danh sách mảng.
+
+Nó so sánh các danh sách Mảng vì cả hai danh sách Mảng phải có `cùng kích thước` và `tất cả các cặp phần tử tương ứng trong hai danh sách Mảng đều bằng nhau`.
+
+```java
+public static void main(String[] args) {
+    List<Integer> list1 = new ArrayList<>();
+    List<Integer> list2 = new ArrayList<>();
+
+    for (int i = 1; i <= 5; i++) {
+        list1.add(i);
+        list2.add(i);
+    }
+
+    boolean areEqual = list1.equals(list2);
+    System.out.println("list1 equals list2: " + areEqual);
+}
+```
+
+Có thể so sánh 2 Object thuộc các lốp tùy chỉnh với kiểu đối tượng trong java như sau. Tuy nhiên chúng ta cần phải ghi đè các phương thức quan trọng như equal() và hashCode() của lớp đó.
+
+Trong Java, khi bạn ghi đè phương thức equals(), bạn nên cũng ghi đè phương thức hashCode() để đảm bảo tính nhất quán giữa hai phương thức này.
+
+Phương thức hashCode() trả về một giá trị số nguyên được sử dụng để xác định vị trí lưu trữ của đối tượng trong các cấu trúc dữ liệu dựa trên băm như HashMap, HashSet, v.v. Trong trường hợp của ArrayList, nó cũng được sử dụng khi bạn thêm một đối tượng vào danh sách.
+
+Nếu bạn không ghi đè phương thức hashCode(), mặc định Java sẽ sử dụng phương thức hashCode() của lớp Object, và các đối tượng có thể có các giá trị hashCode() khác nhau cho cùng một nội dung, dẫn đến việc không nhất quán trong việc so sánh các đối tượng.
+
+Trong phương thức hashCode() được ghi đè của lớp Person, chúng ta sử dụng Objects.hash() để tính toán giá trị hashCode() dựa trên các thuộc tính name và age. Điều này đảm bảo rằng hai đối tượng có cùng name và age sẽ có cùng một giá trị hashCode(), từ đó giúp tối ưu hóa hiệu suất khi chúng ta lưu trữ và tìm kiếm trong các cấu trúc dữ liệu dựa trên băm.
+
+Ví dụ cho việc không ghi đè HashCode()
+
+```java
+static class Person {
+	private String name;
+	private int age;
+
+	public Person(String name, int age) {
+		this.name = name;
+		this.age = age;
+	}
+}
+
+public static void main(String[] args) {
+	// Tạo hai đối tượng Person có nội dung giống nhau nhưng không ghi đè hashCode()
+	Person person1 = new Person("John", 30);
+	Person person2 = new Person("John", 30);
+
+	// Tạo một HashMap và thêm person1 vào đó
+	HashMap<Person, String> hashMap = new HashMap<>();
+	hashMap.put(person1, "Value for person1");
+
+	// Kiểm tra xem HashMap có chứa person2 không
+	boolean containsPerson2 = hashMap.containsKey(person2);
+
+	// Kết quả false
+	System.out.println("HashMap contains person2: " + containsPerson2);
+}
+```
+
+Dưới đây là đoạn code hoàn chỉnh đảm bảo sự nhất quán và các thuộc tính hashCode and equal trong lớp Person
+
+```java
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+class Person {
+    private String name;
+    private int age;
+
+    public Person(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    // Ghi đè phương thức equals()
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age && Objects.equals(name, person.name);
+    }
+
+    // Ghi đè phương thức hashCode()
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, age);
+    }
+
+    @Override
+    public String toString() {
+        return name + " (" + age + ")";
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        List<Person> list1 = new ArrayList<>();
+        List<Person> list2 = new ArrayList<>();
+
+        list1.add(new Person("Alice", 30));
+        list1.add(new Person("Bob", 25));
+
+        list2.add(new Person("Alice", 30));
+        list2.add(new Person("Bob", 25));
+
+        boolean areEqual = list1.equals(list2);
+        System.out.println("list1 equals list2: " + areEqual); // true
+
+        System.out.println("list1: " + list1);
+        System.out.println("list2: " + list2);
+    }
+}
+```
+
+**Time Complexity:** O(N), where N is the length of the Array list.
