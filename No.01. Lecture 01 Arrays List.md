@@ -13,8 +13,8 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 **Khai báo**
 
 ```java
-	List<dataType> arr = new ArrayList<>();
-	ArrayList<dataType> arr = new ArrayList<>();
+List<dataType> arr = new ArrayList<>();
+ArrayList<dataType> arr = new ArrayList<>();
 ```
 
 **Chú ý:** ArrayList chỉ lưu được các **object**, **không thể** lưu được các **kiểu dữ liệu nguyên thủy** như int, long, float, double... Thay vì đó ta sử dụng lớp wrapper của kiểu dữ liệu đó là Integer, Long, Float, Double...
