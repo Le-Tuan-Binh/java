@@ -419,6 +419,10 @@ Một phần tử có thể được loại bỏ khỏi đối tượng của Ar
 
     arrayList.remove(elementValue/elementIndex);
 
+Loại bỏ phần tử đầu tiên trong danh sách có giá trị bằng với đối tượng được chỉ định. Chỉ loại bỏ một phần tử mỗi lần gọi phương thức.
+
+Trả về true nếu phần tử đã được loại bỏ và false nếu không tìm thấy phần tử trong danh sách.
+
 Trong ví dụ bên dưới, một thể hiện `ArrayList` sinh viên trống được tạo và có thể chứa các phần tử kiểu Chuỗi.
 
 Tiếp theo, một vài phần tử được thêm bằng phương thức `.add()`. Cuối cùng, hai sinh viên sẽ bị xóa khỏi ArrayList bằng `.remove()`
@@ -456,6 +460,39 @@ public static void main(String[] args) {
 
 	// Loại bỏ phần tử có giá trị là 3
 	arr.remove((Object)(3));
+
+	// In các phần tử còn lại trong danh sách
+	for(int x : arr) {
+		System.out.print(x + " ");
+	}
+}
+```
+
+#### 7.2 Hàm removeAll()
+
+Phương thức `.removeAll()` được sử dụng để xóa nhiều phần tử khỏi các đối tượng của lớp ArrayList.
+
+    arrayList.removeAll(Collection<?> c)
+
+Phương thức này loại bỏ tất cả giá trị có cùng giá trị cần loại bỏ, khác với remove, phương thức này loại bỏ tất cả các phần tử trong danh sách mà cũng có trong collection được chỉ định.
+
+Trả về true nếu bất kỳ phần tử nào được loại bỏ và false nếu không có phần tử nào được loại bỏ từ danh sách.
+
+```java
+public static void main(String[] args) {
+	List<Integer> arr = new ArrayList<>();
+	int a[] = {1, 2, 2, 2, 3, 3, 5};
+
+	// Thêm các phần tử của mảng a vào danh sách arr
+	for(int x : a) {
+		arr.add(x);
+	}
+
+	// Loại bỏ tất cả các phần tử có giá trị là 2 hoặc 3
+	List<Integer> elementsToRemove = new ArrayList<>();
+	elementsToRemove.add(2);
+	elementsToRemove.add(3);
+	arr.removeAll(elementsToRemove);
 
 	// In các phần tử còn lại trong danh sách
 	for(int x : arr) {
