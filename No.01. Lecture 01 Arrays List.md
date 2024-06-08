@@ -847,3 +847,41 @@ HashMap contains person_two: true
 ```
 
 **Time Complexity:** O(N), trong đó N là kích thước của ArrayList
+
+### 10. Danh sách con và Dãy con
+
+**Phương thức .subList()**
+
+Trong Java, phương thức .subList() là một tính năng mạnh mẽ của giao diện List để lấy một phần danh sách dựa trên các chỉ mục được chỉ định. Phương pháp này cung cấp một cách thuận tiện để tạo danh sách con chứa các phần tử từ danh sách gốc.
+
+    List<E> subList (int fromIndex, int toIndex)
+
+Phương thức subList(int fromIndex, int toIndex) trả về một danh sách con chứa các phần tử từ chỉ số fromIndex (bao gồm) đến toIndex (không bao gồm). Điều này có nghĩa là nếu bạn gọi subList(1, 4), danh sách con sẽ chứa các phần tử từ chỉ số 1 đến chỉ số 3 của danh sách gốc.
+
+```java
+public static void main(String[] args) {
+	List<String> fruits = new ArrayList<>();
+	fruits.add("Apple");fruits.add("Banana");
+	fruits.add("Cherry");fruits.add("Date");
+	fruits.add("Elderberry");
+
+	List<String> subList = fruits.subList(1, 4);
+
+	System.out.println("Danh sách con: " + subList);
+
+	subList.set(1, "Blueberry");
+
+	System.out.println("Danh sách ban đầu sau khi thay đổi: " + fruits);
+}
+```
+
+```bash
+Danh sách con: [Banana, Cherry, Date]
+Danh sách ban đầu sau khi thay đổi: [Apple, Banana, Blueberry, Date, Elderberry]
+```
+
+**Chú ý**
+
+-   Mọi thay đổi trên danh sách con sẽ phản ánh trên danh sách gốc và ngược lại.
+
+-   # Bất Biến: Không thể thay đổi kích thước của danh sách con (không thể thêm hoặc xóa phần tử).
