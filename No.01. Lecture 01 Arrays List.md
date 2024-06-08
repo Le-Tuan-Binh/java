@@ -151,3 +151,110 @@ import java.util.ArrayList;
 	System.out.println("Phần tử tại chỉ số 1: " + fruit);
 }
 ```
+
+### 4. Duyệt qua các phần tử trong danh sách
+
+Java cung cấp nhiều cách hiện đại và tiện lợi để duyệt qua các phần tử trong ArrayList. Ngoài các phương thức truyền thống như sử dụng `vòng lặp for` và `while`, Java 8 và các phiên bản mới hơn đã giới thiệu một số tính năng mới như `for-each`, `Iterator`, `ListIterator`, và đặc biệt là `Stream API`. Dưới đây là chi tiết về các phương pháp hiện đại này.
+
+**Vòng lặp for**
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+	for(int i = 0; i < fruits.size(); i++){
+		System.out.print(fruits.get(i) + " ");
+	}
+}
+```
+
+**Vòng lặp for-each**
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+
+	for (String fruit : fruits) {
+		System.out.println("Trái cây: " + fruit);
+	}
+}
+```
+
+**Sử dụng Iterator**
+
+Iterator là một công cụ mạnh mẽ cho phép duyệt qua các phần tử của ArrayList một cách an toàn và có khả năng loại bỏ phần tử trong khi duyệt.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+
+	Iterator<String> iterator = fruits.iterator();
+	while (iterator.hasNext()) {
+		String fruit = iterator.next();
+		System.out.println("Trái cây: " + fruit);
+	};
+}
+```
+
+**Sử Dụng ListIterator**
+
+`ListIterator` là một phiên bản nâng cao của `Iterator`, cho phép duyệt qua ArrayList theo cả hai hướng (`từ đầu đến cuối và từ cuối đến đầu`), cũng như cung cấp các phương thức để sửa đổi các phần tử.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+
+	ListIterator<String> listIterator = fruits.listIterator();
+
+	System.out.println("Duyệt thuận chiều:");
+	while (listIterator.hasNext()) {
+		String fruit = listIterator.next();
+		System.out.println("Trái cây: " + fruit);
+	}
+
+	System.out.println("Duyệt ngược lại:");
+	while (listIterator.hasPrevious()) {
+		String fruit = listIterator.previous();
+		System.out.println("Trái cây: " + fruit);
+	}
+}
+```
+
+**Sử dụng Stream API**
+
+`Stream API` được giới thiệu trong Java 8, cung cấp một cách `hiện đại` và `linh hoạt` để xử lý các tập hợp dữ liệu. Bạn có thể sử dụng Stream để duyệt qua các phần tử, áp dụng các phép biến đổi, và thực hiện các phép tính trên ArrayList.
+
+```java
+ public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<>();
+	fruits.add("Apple");
+	fruits.add("Banana");
+	fruits.add("Cherry");
+
+	// Sử dụng Stream API để duyệt qua các phần tử và in ra màn hình
+	fruits.stream().forEach(fruit -> System.out.println("Trái cây: " + fruit));
+
+	// Sử dụng Stream API để lọc các phần tử bắt đầu bằng chữ "B" và in ra màn hình
+	List<String> filteredFruits = fruits.stream()
+								.filter(fruit -> fruit.startsWith("B"))
+								.collect(Collectors.toList());
+	System.out.println("Trái cây bắt đầu bằng chữ B: " + filteredFruits);
+
+	// Sử dụng Stream API để chuyển đổi các phần tử sang chữ in hoa
+	List<String> upperCaseFruits = fruits.stream()
+								.map(String::toUpperCase)
+								.collect(Collectors.toList());
+	System.out.println("Trái cây in hoa: " + upperCaseFruits);
+}
+```
