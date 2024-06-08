@@ -337,7 +337,7 @@ public static void main(String[] args) {
 }
 ```
 
-#### 6.2 forEach()
+#### 6.2 Hàm forEach()
 
 Phương thức `.forEach()` thực hiện một hành động được chỉ định trên từng phần tử trong ArrayList. Phương thức này duyệt qua từng phần tử trong ArrayList cho đến khi tất cả các phần tử đã được xử lý hoặc một ngoại lệ được đưa ra từ hành động.
 
@@ -361,5 +361,48 @@ public static void main(String[] args) {
 	students.add("TBinT");
 
 	students.forEach((s) -> System.out.println(s));
+}
+```
+
+#### 6.3 Hàm indexOf()
+
+Phương thức `.indexOf()` trả về vị trí lần xuất hiện đầu tiên của phần tử được chỉ định trong ArrayList. Nếu không tìm thấy phần tử, -1 được trả về.
+
+    arrayList.indexOf(element);
+
+Nếu tồn tại chỉ số của lần xuất hiện đầu tiên của phần tử sẽ được trả về, ngay cả khi giá trị là null. Nếu không tìm thấy phần tử, -1 sẽ được trả về.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> animals = new ArrayList<>();
+
+	animals.add("Lion");
+	animals.add("Tiger");
+	animals.add("Cat");
+	animals.add("Dog");
+	animals.add("Tiger");
+	animals.add("Lion");
+	animals.add("Tiger");
+
+	System.out.println(animals.indexOf("Tiger"));
+	System.out.println(animals.indexOf("Elephant"));
+}
+```
+
+#### 6.4 Hàm isEmpty()
+
+Hàm `.isEmpty()` kiểm tra xem ArrayList đã cho có trống hay không. Nó trả về `true` nếu ArrayList trống và trả về `false` nếu nó không trống.
+
+```java
+public static void main(String[] args) {
+	ArrayList<String> fruits = new ArrayList<String>();
+
+	System.out.println("Is fruits empty: " + fruits.isEmpty());
+
+	fruits.add("kiwi");
+	fruits.add("pineapple");
+	fruits.add("mango");
+
+	System.out.println("Is fruits empty: " + fruits.isEmpty());
 }
 ```
