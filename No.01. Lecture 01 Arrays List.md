@@ -10,8 +10,6 @@ Khác với mảng thông thường có kích thước cố định, ArrayList c
 
 Để sử dụng ArrayList, bạn cần import gói `java.util.ArrayList` vào chương trình của mình.
 
-**Khai báo**
-
 ```java
 List<dataType> arr = new ArrayList<>();
 ArrayList<dataType> arr = new ArrayList<>();
