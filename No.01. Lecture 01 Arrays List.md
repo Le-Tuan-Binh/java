@@ -25,7 +25,7 @@ Một trong những thao tác quan trọng và thường xuyên nhất khi làm 
 
 Có rất nhiều cách thêm phần tử vào ArrayList, tuy nhiên ở bài blog này chúng ta sẽ đề cập tới một số phương thức chính.
 
-**add(DataType dataType)**
+#### 2.1 add(DataType dataType)
 
 Hàm add dùng để thêm một phần tử vào cuối danh sách, đây là cách sử dụng hàm add một cách dễ dàng với ví dụ sau
 
@@ -41,7 +41,7 @@ public static void main(String[] args) {
 }
 ```
 
-**add(int index, DataType dataType)**
+#### 2.2 add(int index, DataType dataType)
 
 Đôi khi, bạn cần thêm phần tử vào một vị trí cụ thể trong danh sách. Bạn có thể sử dụng phương thức add(int index, E element) để thực hiện điều này.
 
@@ -60,7 +60,7 @@ public static void main(String[] args) {
 }
 ```
 
-**addAll(Collection<? extends E> c)**
+#### 2.3 addAll(Collection<? extends E> c)
 
 Phương thức `addAll(Collection<? extends E> c)` cho phép bạn thêm tất cả các phần tử từ một Collection khác vào ArrayList.
 
@@ -82,7 +82,7 @@ public static void main(String[] args) {
 }
 ```
 
-**addAll(int index, Collection<? extends E> c)**
+#### 2.4 addAll(int index, Collection<? extends E> c)
 
 Phương thức `addAll(int index, Collection<? extends E> c)` cho phép bạn thêm tất cả các phần tử từ một Collection khác vào ArrayList tại một vị trí cụ thể.
 
@@ -103,7 +103,7 @@ public static void main(String[] args) {
 }
 ```
 
-**Collections.addAll(Collection<? super T> c, T... elements)**
+#### 2.5 Collections.addAll(Collection<? super T> c, T... elements)
 
 Trong đó:
 
@@ -156,7 +156,7 @@ import java.util.ArrayList;
 
 Java cung cấp nhiều cách hiện đại và tiện lợi để duyệt qua các phần tử trong ArrayList. Ngoài các phương thức truyền thống như sử dụng `vòng lặp for` và `while`, Java 8 và các phiên bản mới hơn đã giới thiệu một số tính năng mới như `for-each`, `Iterator`, `ListIterator`, và đặc biệt là `Stream API`. Dưới đây là chi tiết về các phương pháp hiện đại này.
 
-**Vòng lặp for**
+#### 4.1 Vòng lặp for
 
 ```java
 public static void main(String[] args) {
@@ -170,7 +170,7 @@ public static void main(String[] args) {
 }
 ```
 
-**Vòng lặp for-each**
+#### 4.2 Vòng lặp for-each
 
 ```java
 public static void main(String[] args) {
@@ -185,16 +185,16 @@ public static void main(String[] args) {
 }
 ```
 
-**Sử dụng Iterator**
+#### 4.3 Sử dụng Iterator
 
 Iterator là một công cụ mạnh mẽ cho phép duyệt qua các phần tử của ArrayList một cách an toàn và có khả năng loại bỏ phần tử trong khi duyệt.
 
-**1. Phương Thức Duyệt Qua**
+##### 4.3.1. Phương Thức Duyệt Qua
 
 -   boolean hasNext(): Kiểm tra xem còn phần tử nào tiếp theo không.
 -   E next(): Trả về phần tử tiếp theo và di chuyển con trỏ tới phần tử đó.
 
-**2. Phương Thức Sửa Đổi**
+##### 4.3.2. Phương Thức Sửa Đổi
 
 -   void remove(): Xóa phần tử cuối cùng được trả về bởi next() hoặc previous(). Phương thức này chỉ có thể được gọi một lần cho mỗi lần gọi next() hoặc previous().
 
@@ -213,20 +213,20 @@ public static void main(String[] args) {
 }
 ```
 
-**Sử Dụng ListIterator**
+#### 4.4 Sử Dụng ListIterator
 
 `ListIterator` là một phiên bản nâng cao của `Iterator`, cho phép duyệt qua ArrayList theo cả hai hướng (`từ đầu đến cuối và từ cuối đến đầu`), cũng như cung cấp các phương thức để sửa đổi các phần tử.
 
 Một số phương thức của `ListIterator`
 
-**1. Phương Thức Duyệt Qua**
+##### 4.4.1. Phương Thức Duyệt Qua
 
 -   boolean hasNext(): Kiểm tra xem còn phần tử nào tiếp theo không.
 -   E next(): Trả về phần tử tiếp theo và di chuyển con trỏ tới phần tử đó.
 -   boolean hasPrevious(): Kiểm tra xem còn phần tử nào trước đó không.
 -   E previous(): Trả về phần tử trước đó và di chuyển con trỏ lùi lại một bước.
 
-**2. Phương Thức Sửa Đổi**
+##### 4.4.4.2. Phương Thức Sửa Đổi
 
 -   void remove(): Xóa phần tử cuối cùng được trả về bởi next() hoặc previous(). Phương thức này chỉ có thể được gọi một lần cho mỗi lần gọi next() hoặc previous().
 -   void set(E e): Thay thế phần tử cuối cùng được trả về bởi next() hoặc previous() bằng phần tử được chỉ định.
@@ -255,7 +255,7 @@ public static void main(String[] args) {
 }
 ```
 
-**Sử dụng Stream API**
+#### 4.5 Sử dụng Stream API
 
 `Stream API` được giới thiệu trong Java 8, cung cấp một cách `hiện đại` và `linh hoạt` để xử lý các tập hợp dữ liệu. Bạn có thể sử dụng Stream để duyệt qua các phần tử, áp dụng các phép biến đổi, và thực hiện các phép tính trên ArrayList.
 
@@ -622,7 +622,6 @@ public static void main(String[] args) {
 	colors.add("Red");
 	colors.add("Green");
 	colors.add("Blue");
-
 	// In danh sách ban đầu
 	System.out.println("Danh sách ban đầu: " + colors);
 
@@ -635,3 +634,7 @@ public static void main(String[] args) {
 ```
 
 ### 8. Sắp xếp danh sách
+
+#### 8.1 Hàm Arrays.sort()
+
+Phương thức `.sort()` được sử dụng để sắp xếp **mảng gồm các kiểu và đối tượng nguyên thủy**. Việc sắp xếp được thực hiện theo thứ tự tăng dần theo mặc định, nhưng nó có thể được tùy chỉnh cho các đối tượng bằng cách triển khai interface Comparable hoặc dùng Comparator.
