@@ -346,7 +346,7 @@ Phương thức `.forEach()` thực hiện một hành động được chỉ đ
 Trong đó:
 
 -   arrayList: Tên biến của danh sách ArrayList
--   Consumer: Một giao diện hàm (functional interface) đại diện cho một hoạt động cần được thực hiện. Nó có thể được sử dụng như mục tiêu gán cho một biểu thức lambda hoặc tham chiếu đến một phương thức nào.
+-   Consumer: Một Functional Interface đại diện cho một hoạt động cần được thực hiện. Nó có thể được sử dụng như mục tiêu gán cho một biểu thức lambda hoặc tham chiếu đến một phương thức nào.
 -   action: Hoạt động nhận một phần tử của kiểu E trong ArrayList làm đối số duy nhất của nó và không trả về bất kỳ giá trị nào.
 
 Nó chỉ lặp qua các phần tử mà không sửa đổi ArrayList và không trả về bất kỳ giá trị nào.
@@ -594,7 +594,7 @@ Nếu bất kỳ phần tử nào bị loại bỏ, phương thức này trả v
 Trong đó
 
 -   arrayList: Tên của danh sách.
--   Predicate<T>: Giao hiện hàm đại diện cho một điều kiện nào đó với kiểu Template T
+-   Predicate<T>: Function Interface đại diện cho một điều kiện nào đó với kiểu Template T
 -   filter: Điều kiện cần kiểm tra
 
 ```java
@@ -852,7 +852,7 @@ HashMap contains person_two: true
 
 **Phương thức .subList()**
 
-Trong Java, phương thức .subList() là một tính năng mạnh mẽ của giao diện List để lấy một phần danh sách dựa trên các chỉ mục được chỉ định. Phương pháp này cung cấp một cách thuận tiện để tạo danh sách con chứa các phần tử từ danh sách gốc.
+Trong Java, phương thức .subList() là một tính năng mạnh mẽ của List để lấy một phần danh sách dựa trên các chỉ mục được chỉ định. Phương pháp này cung cấp một cách thuận tiện để tạo danh sách con chứa các phần tử từ danh sách gốc.
 
     List<E> subList (int fromIndex, int toIndex)
 
