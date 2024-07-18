@@ -200,32 +200,31 @@ class Room {
 `Dependency` là một loại quan hệ mà một lớp cần một lớp khác để hoạt động đúng. Điều này thường xảy ra khi một lớp sử dụng một đối tượng của một lớp khác như là một tham số hoặc biến cục bộ.
 
 ```java
-class Engine {
-    private String type;
-
-    public Engine(String type) {
-        this.type = type;
-    }
-
-    public String getType() {
-        return type;
+class Address {
+    private String street;
+    private String city;
+    public Address(String street, String city) {
+        this.street = street;
+        this.city = city;
     }
 }
+class Employee {
+    private Address address;
 
-class Car {
-    private String model;
-    private Engine engine;
-
-    public Car(String model, Engine engine) {
-        this.model = model;
-        this.engine = engine;
+    public Employee( Address newAddress ) {
+        this.address = newAddress;
     }
 
-    public void display() {
-        System.out.println(model + " với loại động cơ " + engine.getType());
+    public Address getAddress() {
+    return this.address;
+    }
+    public void setAddress( Address newAddress ) {
+        this.address = newAddress;
     }
 }
 ```
+
+Đối tượng Employee phụ thuộc vào đối tượng Address để có thể lưu trữ và quản lý thông tin địa chỉ của nhân viên. Tuy nhiên, hai đối tượng này có thể tồn tại độc lập nhau, tức là đối tượng Employee không cần phải tồn tại để đối tượng Address có thể tồn tại và ngược lại.
 
 ### 6. Kí hiệu trong quá trình thiết kế
 
