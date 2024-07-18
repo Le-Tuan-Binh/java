@@ -2,6 +2,8 @@
 
 Trong lập trình hướng đối tượng (OOP), các lớp (class) không tồn tại độc lập mà thường có mối quan hệ với nhau. Hiểu rõ các loại quan hệ giữa các lớp là một phần quan trọng trong việc thiết kế phần mềm. Trong bài giảng này, chúng ta sẽ tìm hiểu về các loại quan hệ chính giữa các lớp bao gồm: kế thừa (inheritance), kết hợp (association), tập hợp (aggregation), và hợp thành (composition).
 
+Bên cạnh đó thời điểm hiện tại không chỉ có các mối quan hệ trên mà còn sự xuất hiện của rất nhiều các mối quan hệ khác. Các bạn hãy tìm hiểu và cho mình nhưng best practice nhất nhé.
+
 ## Getting Involved
 
 ### 0. Mối quan hệ isA and hasA trong lập trình
@@ -223,8 +225,6 @@ class Employee {
     }
 }
 ```
-
-Đối tượng Employee phụ thuộc vào đối tượng Address để có thể lưu trữ và quản lý thông tin địa chỉ của nhân viên. Tuy nhiên, hai đối tượng này có thể tồn tại độc lập nhau, tức là đối tượng Employee không cần phải tồn tại để đối tượng Address có thể tồn tại và ngược lại.
 
 ### 6. Kí hiệu trong quá trình thiết kế
 
