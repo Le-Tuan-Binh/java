@@ -319,16 +319,23 @@ Phương thức collect() trong Stream API của Java là một trong những ph
 **Trong đó**
 
 **T**: kiểu của các phần tử trong Stream.
+
 **A**: kiểu của bộ sưu tập trung gian (có thể là một List, Set, hoặc Map).
+
 **R**: kiểu của kết quả thu được sau khi collect() được thực hiện.
 
 **Các Collector thông dụng nhất trong Java bao gồm:**
 
 **Collectors.toList()**: thu thập kết quả thành một List.
+
 **Collectors.toSet()**: thu thập kết quả thành một Set.
+
 **Collectors.toMap()**: thu thập kết quả thành một Map.
+
 **Collectors.joining()**: nối các phần tử thành một chuỗi.
+
 **Collectors.groupingBy()**: nhóm các phần tử theo một tiêu chí.
+
 **Collectors.counting()**: Đếm số lượng phần tử trong Stream.
 
 ```java
