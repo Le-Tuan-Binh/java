@@ -61,9 +61,9 @@ names.stream()
 
 Lọc các điều kiện phức tạp trong Java Stream có thể được thực hiện bằng cách sử dụng nhiều biểu thức điều kiện trong phương thức filter(). Bạn có thể kết hợp các điều kiện bằng cách sử dụng các toán tử logic như:
 
-**&&** Tất cả các điều kiện phải đúng.
-**||** Một trong các điều kiện đúng là đủ.
-**!** Đảo ngược giá trị của điều kiện.
+- **&&** Tất cả các điều kiện phải đúng.
+- **||** Một trong các điều kiện đúng là đủ.
+- **!** Đảo ngược giá trị của điều kiện.
 
 Hoặc bạn có thể viết 1 phương thức trả về **boolean** hoặc **Predicate<T>** để truyền vào `filter()`
 
