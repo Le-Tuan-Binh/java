@@ -136,9 +136,9 @@ Dùng để chuyển đổi mỗi phần tử của Stream sang dạng khác.
 
 **Trong đó:**
 
-**T** là kiểu dữ liệu của các phần tử hiện tại trong Stream.
-**R** là kiểu dữ liệu của kết quả sau khi áp dụng hàm Function.
-**Function<? super T, ? extends R>** là một interface chức năng với phương thức duy nhất apply() dùng để chuyển đổi phần tử từ kiểu T sang kiểu R.
+- **T** là kiểu dữ liệu của các phần tử hiện tại trong Stream.
+- **R** là kiểu dữ liệu của kết quả sau khi áp dụng hàm Function.
+- **Function<? super T, ? extends R>** là một interface chức năng với phương thức duy nhất apply() dùng để chuyển đổi phần tử từ kiểu T sang kiểu R.
 
 ```java
 List<String> names = Arrays.asList("John", "Jane", "Jack");
