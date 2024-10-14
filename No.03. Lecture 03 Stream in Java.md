@@ -18,21 +18,21 @@ Stream không lưu trữ dữ liệu, mà chỉ là các tập hợp các thao t
 
 ### 2. Các cách tạo Stream trong Java
 
-#### 2.1 Từ `Collection`
+### 2.1 Từ `Collection`
 
 ```java
 List<String> names = Arrays.asList("John", "Jane", "Jack");
 Stream<String> stream = names.stream();
 ```
 
-#### 2.2 Từ `Arrays`
+### 2.2 Từ `Arrays`
 
 ```java
 int[] numbers = {1, 2, 3, 4, 5};
 IntStream intStream = Arrays.stream(numbers);
 ```
 
-#### 2.3 Từ `Stream.of()`
+### 2.3 Từ `Stream.of()`
 
 ```java
 Stream<String> stream = Stream.of("Java", "C++", "Python");
@@ -42,9 +42,9 @@ Stream<String> stream = Stream.of("Java", "C++", "Python");
 
 Stream API hỗ trợ nhiều phương thức giúp bạn thao tác với dữ liệu một cách hiệu quả. Các thao tác này được chia thành 2 nhóm chính: Intermediate Operations - Các thao tác trung gian và Terminal Operations - Các thao tác kết thúc.
 
-#### 3.1 Intermediate Operations
+### 3.1 Intermediate Operations
 
-##### 3.1.1 filter(Predicate)
+### 3.1.1 filter(Predicate)
 
 Dùng để lọc các phần tử thõa mãn một điều kiện nào đó
 
@@ -126,7 +126,7 @@ public class Main {
 }
 ```
 
-##### 3.1.2 map(Function)
+### 3.1.2 map(Function)
 
 Dùng để chuyển đổi mỗi phần tử của Stream sang dạng khác.
 
@@ -172,7 +172,7 @@ names.stream()
 	.forEach(System.out::println);
 ```
 
-##### 3.1.3 sorted()
+### 3.1.3 sorted()
 
 Sắp xếp các phần tử theo thứ tự tự nhiên hoặc theo comparator.
 
@@ -243,11 +243,11 @@ numbers.stream()
 ```
 
 
-#### 3.2 Terminal Operations
+### 3.2 Terminal Operations
 
 Các thao tác này kết thúc Stream và trả về một giá trị cụ thể hoặc thực hiện một hành động.
 
-##### 3.2.1 forEach(Consumer)
+### 3.2.1 forEach(Consumer)
 
 Dùng để lặp qua các phần tử và thực hiện một hành động nào đó.
 
@@ -307,7 +307,7 @@ public class Main {
 }
 ```
 
-##### 3.2.2 collect(Collector)
+### 3.2.2 collect(Collector)
 
 
 Phương thức collect() trong Stream API của Java là một trong những phương thức quan trọng nhất khi bạn muốn thu thập kết quả từ một Stream thành một kiểu dữ liệu khác, chẳng hạn như List, Set, Map, hoặc thậm chí là một chuỗi. Phương thức này sử dụng một Collector để thực hiện việc thu thập.
@@ -384,7 +384,7 @@ System.out.println(lengthCount);
 ```
 Ở đây, chúng ta nhóm các tên theo độ dài và đếm số lượng tên trong mỗi nhóm.
 
-##### 3.2.3 reduce(BinaryOperator)
+### 3.2.3 reduce(BinaryOperator)
 
 Dùng để kết hợp các phần tử thành một giá trị duy nhất.
 
